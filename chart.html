@@ -29,7 +29,8 @@
             --clr-green: #03C252;
             --clr-lightBlue: #0271EB;   
             
-            font-size: 1rem;
+            --text-font-size: 1rem;
+            --bar-font-size: 2rem;
             --bar-height: 2.5rem;
             --bar-height-grow: 2.8rem;
         }
@@ -53,6 +54,7 @@
         .text{
             width: var(--height);
             padding-right: 1.5rem;
+            font-size: var(--text-font-size);
             text-align: right;
             text-transform: uppercase;
             font-family: Verdana, Geneva, Tahoma, sans-serif; 
@@ -65,8 +67,10 @@
             padding-left: 0;
             text-align: left;
             border-left: 0.25rem solid var(--clr-green);
-            font-size: 2rem;
-            font-family: 'SpectrumSans', bold;
+            font-size: var(--bar-font-size);
+            font-family: Verdana, Geneva, Tahoma, sans-serif; 
+            font-family: 'SpectrumSans';
+            font-weight: bold;
         }
 
         #barTop{
