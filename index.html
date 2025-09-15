@@ -3,212 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Bar Char</title>
-    <script>
-        // UPDATE TEXT HERE //
-        var data = [
-            ["addressable", 80],
-            ["cost per patient household", 10]
-        ]
-    </script>
+    <title>Document</title>
     <style>
-        :root {
-            /* UPDATE BARS WIDTH HERE*/
-            --topBarValue: 80%;
-            --bottomBarValue: 25%;            
-
-            /* SPEED */            
-            --bar-animation-spd:2s; 
-
-            /* COLORS */
-            --clr-greyBG: #e7e7e7;
-            --clr-green: #03C252;
-            --clr-lightBlue: #0271EB;            
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #e7e7e7;
+        }
+        #icon{
+            width: 240px; 
+            height: 150px;
+            transform: scale(0.9);
+            transition: all 0.15s ease;
         }
 
-         @font-face {
-            font-family: 'SpectrumSans'; /* Choose a descriptive name for your font */
-            src: url('../fonts/SpectrumSans_W_Bd.woff2') format('woff2'), /* Path to your font file */
-                url('../fonts/SpectrumSans_W_Bd.woff') format('woff');
-            font-weight: bold;
-            font-style: normal;
+        #icon:hover{
+            transform: scale(1);
         }
-
-        table{
-            width: 650px;
-            height: 190px;
-            border-collapse: collapse;
-            background-color: var(--clr-greyBG);
-            user-select: none;
-        }
-
-        .text{
-            width: 190px;
-            padding-right: 25px;
-            text-align: right;
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            font-family: 'SpectrumSans', bold;
-        }
-
-        .bar{
-            padding-right: 25px;
-            padding-left: 0;
-            text-align: left;
-            border-left: 3px solid var(--clr-green);
-            font-size: 2rem;
-            font-family: 'SpectrumSans', bold;
-        }
-
-        #barTop{
-            height: 55px;
-            width: var(--topBarValue);
-            animation: topBar-animation var(--bar-animation-spd) ease;            
-            background: linear-gradient(90deg, var(--clr-lightBlue), var(--clr-green));
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            z-index: +3;
-            position: relative;
-            transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-        }
-
-        #barTop::before{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            background: linear-gradient(90deg, var(--clr-lightBlue), var(--clr-green));
-            filter: blur(5px) opacity(100%);
-        }
-
-        #barTop::after{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: -15px;
-            bottom: 0;
-            z-index: -1;
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            background: linear-gradient(90deg, var(--clr-lightBlue), var(--clr-green));
-            filter: blur(5px) opacity(50%);
-        }
-
-        #barBottom{
-            height: 55px;
-            width: var(--bottomBarValue);
-            animation: bottomBar-animation var(--bar-animation-spd) ease;
-            background-color: var(--clr-lightBlue);
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            z-index: +3;
-            position: relative;
-            transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-        }
-
-        #barTop:hover{
-            width: calc(var(--topBarValue) + 5%);
-            height: 60px;
-        }
-
-        #barBottom::before{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            background-color: var(--clr-lightBlue);
-            filter: blur(5px) opacity(100%);
-        }
-
-        #barBottom::after{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: -15px;
-            bottom: 0;
-            z-index: -1;
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            background-color: var(--clr-lightBlue);
-            filter: blur(5px) opacity(50%);
-        }
-
-        #barTopText, #barBottomText{
-            color: white;
-            height: 100%;
-            padding-left: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        #barBottom:hover{
-            width: calc(var(--bottomBarValue) + 5%);
-            height: 60px;
-        }
-        
-
-        @keyframes topBar-animation {
-            0% {
-                width: 0%;
-            }
-            100% {
-                width: var(--topBarValue);
-            }
-        }
-
-        @keyframes bottomBar-animation {
-            0% {
-                width: 0%;
-            }
-            100% {
-                width: var(--bottomBarValue);
-            }
-        }
-
-
     </style>
 </head>
 <body>
-    <div>
-        <table>
-            <tr>
-                <td class="text" id="textTop"></td>
-                <td class="bar">
-                    <div id="barTop">
-                        <div id="barTopText"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="text" id="textBottom"></td>
-                <td class="bar">
-                    <div id="barBottom">
-                        <div id="barBottomText"></div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <script>
-        document.getElementById("textTop").innerHTML = data[0][0];
-        document.getElementById("barTopText").innerHTML = data[0][1] + "%";
-
-        document.getElementById("textBottom").innerHTML = data[1][0];
-        document.getElementById("barBottomText").innerHTML = data[1][1] + "%";
-    </script>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <dotlottie-wc src="https://lottie.host/6e179662-bbee-48fa-bc25-176a2e482e77/TU5EQQPEa3.lottie" 
+        speed="1" autoplay loop id="icon"></dotlottie-wc>
 </body>
 </html>
