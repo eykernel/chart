@@ -35,6 +35,14 @@
             --bar-height-grow: 2.8rem;
         }
 
+        *{
+            margin: 0;
+        }
+
+        body{
+            background-color: var(--clr-greyBG);
+        }
+
          @font-face {
             font-family: 'SpectrumSans'; /* Choose a descriptive name for your font */
             src: url('../fonts/SpectrumSans_W_Bd.woff2') format('woff2'), /* Path to your font file */
@@ -47,8 +55,10 @@
             width: var(--width);
             height: var(--height);
             border-collapse: collapse;
-            background-color: var(--clr-greyBG);
             user-select: none;
+        }
+        tr{
+            height: 50%;
         }
 
         .text{
@@ -126,6 +136,7 @@
         }
 
         #barTop:hover{
+            cursor: pointer;
             width: calc(var(--topBarValue) + 5%);
             height: var(--bar-height-grow);
         }
@@ -168,6 +179,7 @@
         }
 
         #barBottom:hover{
+            cursor: pointer;
             width: calc(var(--bottomBarValue) + 5%);
             height: var(--bar-height-grow);
         }
