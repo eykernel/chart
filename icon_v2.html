@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* background-color: #e7e7e7; */
+            margin: 0;
+            padding: 0;
+            overflow: hidden;            
+        }
+
+        #wrapper{
+            margin: 0;
+            padding: 0;
+            width: 240px; 
+            height: 150px;
+            transform-origin: top left;
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+        }
+
+        #icon{
+            
+            transform: scale(0.9);
+            transition: all 0.15s ease;
+        }
+
+        #icon:hover{
+            /* cursor: pointer; */
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper"> 
+        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+        <dotlottie-wc src="https://lottie.host/6e179662-bbee-48fa-bc25-176a2e482e77/TU5EQQPEa3.lottie" 
+            speed="1" autoplay loop id="icon"></dotlottie-wc>
+    </div>
+
+    <script>
+        function scaleWrapper(){
+            const baseWidth = 240;
+            const beseHeight = 150;
+            const scaleX = window.innerWidth/baseWidth;
+            const scaleY = window.innerHeight/beseHeight;
+            const scale = Math.min(scaleX, scaleY);
+
+            document.getElementById("wrapper").style.transform = `scale(${scale})`;
+        }
+
+        window.addEventListener("resize", scaleWrapper);
+        scaleWrapper()
+;
+        
+    </script>
+</body>
+</html>
